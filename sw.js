@@ -11,9 +11,9 @@ const PRECACHE_URLS = [
   'images/hello-icon-144.png',
   'images/hello-icon-152.png',
   'images/hello-icon-192.png',
+  'images/hello-icon-196maskable.png',
   'images/hello-icon-256.png',
   'images/hello-icon-512.png',
-  'images/hello-icon-196maskable.png',
   'sw.js'
   ];
 
@@ -21,12 +21,12 @@ const PRECACHE_URLS = [
 self.addEventListener('install',function(event){
   event.waitUntil(
     caches.open(PRECACHE).then(function(cache){
-      return.cache.addAll(PRECACHE_URLS);
+      return cache.addAll(PRECACHE_URLS);
     })
     );
 });
 
-// The activate handler
+// The activate handler 
 self.addEventListener('activate',event => {
   console.log('Service worker activating . . . ');
 });
@@ -39,7 +39,6 @@ self.addEventListener('fetch', function(event) {
     })
     );
 });
-
 
 
 
